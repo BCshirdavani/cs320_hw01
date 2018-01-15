@@ -8,7 +8,7 @@ public class Test{
 	   public void m1(){
 	      	int x = 100;
 	        double d = 2.3;
-	        char ch = 'a;
+	        char ch = 'a';
 	        String text = "CS 320 Programming Language";
 	        if(ch == 'a'){
 	            int k = 10;
