@@ -31,30 +31,36 @@ public class VarGrab {
         }
 
         // print the text that was scanned from file
-        System.out.println("\nhere is the text...\n");
-        System.out.println(text);
+//        System.out.println("\nhere is the text...\n");
+//        System.out.println(text);
 
         // Make the pattern that we will use to search for in our Reg Exp
-//        Pattern pattern = Pattern.compile("(.+)//s(.+)//s?=?//s?(.*);");
-//        Pattern pattern = Pattern.compile("([a-zA-Z]+)\\s(.+)\\s?=?\\s?(.*);");
-        Pattern pattern = Pattern.compile("(\\w+)\\s(\\w+)\\s?=?\\s?([\\w|\\'|\\.|\"]*);");
-//        Pattern pattern = Pattern.compile("(\\w+)\\s?(\\w+)\\s?=?\\s?([\\w|\\'|\\.|\"]*);");
+//        Pattern pattern = Pattern.compile("(\\w+)\\s(\\w+)\\s?=?\\s?([\\w|\\'|\\.|\"]*);");
+//        Pattern pattern = Pattern.compile("(\\w+)\\s(\\w+)\\s?=?\\s?(.*?);");
+//        Pattern pattern = Pattern.compile("(\\w+)\\s(\\w+)\\s?=?\\s?([\\w|\\'|\\.|\"]*);");
+//        Pattern pattern = Pattern.compile(".*\\s(\\w+)(\\s=\\s(\\d+))?;");
+//        Pattern pattern = Pattern.compile("(\\w+)\\s(\\w+)(\\s?=?\\s)?(.*)?;"); //  the last () has all i need
+        Pattern pattern = Pattern.compile("\\s((\\w*)?\\s(\\w+)(\\s=\\s(.*))?)?;");
+
+
 
         Matcher matcher = pattern.matcher(text);
         String subset_01 = "";
         int countMatch = 0;
-        System.out.println("loop should start printing now...\n\n");
+//        System.out.println("loop should start printing now...\n\n");
         while (matcher.find()) {
 //            System.out.println("\t looping");
 //            System.out.println("\t" + matcher.group(0));
-            System.out.println("\t" + matcher.group(0));
-            System.out.println("type:\t" + matcher.group(1));
-            System.out.println("name:\t" + matcher.group(2));
-            System.out.println("value:\t" + matcher.group(3));
+//            System.out.println("\t" + matcher.group(0));
+            System.out.println("type:\t" + matcher.group(2));
+            System.out.println("name:\t" + matcher.group(3));
+            System.out.println("value:\t" + matcher.group(5));
+//            System.out.println("4:\t" + matcher.group(4));
+//            System.out.println("5:\t" + matcher.group(5));
             System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
             countMatch++;
         }
-        System.out.println(countMatch);
+//        System.out.println(countMatch);
     }
 
 }
